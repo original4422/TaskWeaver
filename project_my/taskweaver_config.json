@@ -1,0 +1,10 @@
+{
+  "llm.api_type": "openai",
+  "llm.api_base": "https://api.deepseek.com",
+  "llm.api_key": "sk-72dbc20c9f9248f39fac43b42970450d",
+  "llm.model": "deepseek-chat",
+  "llm.top_p": 0.7,
+  "llm.temperature": 0.1,
+  "llm.max_tokens": 4096,
+  "execution_service.kernel_mode": "local"
+}

@@ -98,7 +98,7 @@ class OpenAIServiceConfig(LLMServiceConfig):
         self.stop_token = self._get_list("stop_token", DEFAULT_STOP_TOKEN)
         self.temperature = self._get_float("temperature", 0)
         self.max_tokens = self._get_int("max_tokens", 1024)
-        self.top_p = self._get_float("top_p", 0)
+        self.top_p = self._get_float("top_p", 0.7)
         self.frequency_penalty = self._get_float("frequency_penalty", 0)
         self.presence_penalty = self._get_float("presence_penalty", 0)
         self.seed = self._get_int("seed", 123456)
