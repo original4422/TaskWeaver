@@ -170,7 +170,7 @@ class ChainLitMessageUpdater(SessionEventHandlerBase):
     ):
         if type == PostEventType.post_start:
             self.reset_cur_step()
-            self.cur_step = cl.Step(name=extra["role"], show_input=True, root=False)
+            self.cur_step = cl.Step(name=extra["role"], show_input=True)
             cl.run_sync(self.cur_step.__aenter__())
         elif type == PostEventType.post_end:
             assert self.cur_step is not None
@@ -400,7 +400,7 @@ async def main(message: cl.Message):
     session_cwd_path = session.execution_cwd
 
     # display loader before sending message
-    async with cl.Step(name="", show_input=True, root=True) as root_step:
+    async with cl.Step(name="", show_input=True) as root_step:
         response_round = await cl.make_async(session.send_message)(
             message.content,
             files=[

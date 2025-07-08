@@ -28,8 +28,8 @@ returns:
 
 configurations:
   api_type: openai
-  api_base:
-  api_key:
+  api_base: https://api.deepseek.com
+  api_key: sk-72dbc20c9f9248f39fac43b42970450d
   api_version:
-  deployment_name:
+  deployment_name: deepseek-chat
   sqlite_db_path: sqlite:///../../../../sample_data/anomaly_detection.db
