@@ -1,11 +1,13 @@
 from operator import itemgetter
 
 import pandas as pd
-from langchain.chat_models import AzureChatOpenAI, ChatOpenAI
+# from langchain.chat_models import AzureChatOpenAI, ChatOpenAI
+from langchain_openai import AzureChatOpenAI, ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnableLambda, RunnableMap
-from langchain.utilities import SQLDatabase
+# from langchain.utilities import SQLDatabase
+from langchain_community.utilities import SQLDatabase
 
 from taskweaver.plugin import Plugin, register_plugin
 
@@ -27,8 +29,9 @@ class SqlPullData(Plugin):
             )
         elif api_type == "openai":
             model = ChatOpenAI(
+                base_url=self.config.get("api_base"),
                 openai_api_key=self.config.get("api_key"),
-                model_name=self.config.get("deployment_name"),
+                model=self.config.get("deployment_name"),
                 temperature=0,
                 verbose=True,
             )
